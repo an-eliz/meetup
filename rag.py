@@ -57,7 +57,7 @@ for message in st.session_state.messages:
 promt = st.chat_input(placeholder='Введите сообщение')
 
 if promt:
-    #st.session_state.messages = []
+    st.session_state.messages = []
     relevant_search = vectorSearch(db=db, query=promt)
     st.session_state.messages.insert(0, SystemMessage(content=relevant_search))
     with st.chat_message('user'):
